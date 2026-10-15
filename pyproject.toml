@@ -1,0 +1,44 @@
+[project]
+name = "skytecgames"
+version = "0.1.0"
+description = "Metacritic Games Tracker"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "anthropic>=1.14.0",
+    "apscheduler<4",
+    "fastapi>=0.143.1",
+    "fastembed>=0.9.0",
+    "httpx>=0.28.1",
+    "jinja2>=3.1.6",
+    "pydantic-settings>=2.16.0",
+    "sqlalchemy>=2",
+    "tenacity>=9.2.1",
+    "uvicorn[standard]>=0.54.0",
+    "yt-dlp>=2026.8.19",
+]
+
+[dependency-groups]
+dev = [
+    "bandit>=1.9.4",
+    "freezegun>=1.5.5",
+    "pip-audit>=2.10.1",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "respx>=0.23.1",
+    "ruff>=0.17.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S", "SIM"]
+ignore = ["S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
