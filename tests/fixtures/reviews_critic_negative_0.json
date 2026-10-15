@@ -1,0 +1,68 @@
+{
+ "data": {
+  "id": null,
+  "totalResults": 0,
+  "items": []
+ },
+ "links": {
+  "self": {
+   "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/web?offset=0&limit=10&filterBySentiment=negative&sort=score"
+  },
+  "prev": {
+   "href": null
+  },
+  "next": {
+   "href": null
+  },
+  "first": {
+   "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/web?offset=0&limit=10&filterBySentiment=negative&sort=score"
+  },
+  "last": {
+   "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/web?offset=0&limit=10&filterBySentiment=negative&sort=score"
+  },
+  "filterOptions": [
+   {
+    "label": "All Reviews",
+    "value": "all",
+    "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/web?offset=0&limit=10&filterBySentiment=all&sort=score"
+   },
+   {
+    "label": "Positive Reviews",
+    "value": "positive",
+    "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/web?offset=0&limit=10&filterBySentiment=positive&sort=score"
+   },
+   {
+    "label": "Mixed Reviews",
+    "value": "neutral",
+    "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/web?offset=0&limit=10&filterBySentiment=neutral&sort=score"
+   },
+   {
+    "label": "Negative Reviews",
+    "value": "negative",
+    "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/web?offset=0&limit=10&filterBySentiment=negative&sort=score"
+   }
+  ],
+  "sortOptions": [
+   {
+    "label": "Metascore",
+    "value": "score",
+    "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/web?offset=0&limit=10&filterBySentiment=negative&sort=score"
+   },
+   {
+    "label": "Recently Added",
+    "value": "date",
+    "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/web?offset=0&limit=10&filterBySentiment=negative&sort=date"
+   },
+   {
+    "label": "Publication (A-Z)",
+    "value": "publication",
+    "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/web?offset=0&limit=10&filterBySentiment=negative&sort=publication"
+   }
+  ]
+ },
+ "meta": {
+  "componentName": null,
+  "componentDisplayName": null,
+  "componentType": null
+ }
+}

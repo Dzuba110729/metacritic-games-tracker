@@ -15,6 +15,8 @@ class Settings(BaseSettings):
     schedule_minutes: int = 60
     force_run_cooldown_min: int = 10
     log_level: str = "INFO"
+    # Публичный ключ, вшитый во фронтенд metacritic.com (не секрет).
+    metacritic_api_key: str = "1MOZgmNFxvmljaQR1X9KAij9Mo4xAY3u"
 
 
 @lru_cache

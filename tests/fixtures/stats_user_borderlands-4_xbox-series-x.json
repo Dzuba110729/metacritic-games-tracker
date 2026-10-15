@@ -1,0 +1,25 @@
+{
+ "data": {
+  "item": {
+   "id": "1400785591",
+   "max": 10,
+   "score": 5.7,
+   "reviewCount": 69,
+   "positiveCount": 29,
+   "neutralCount": 13,
+   "negativeCount": 27,
+   "sentiment": "Mixed or average",
+   "url": "/game/borderlands-4/user-reviews/?platform=xbox-series-x"
+  }
+ },
+ "links": {
+  "self": {
+   "href": "https://backend.metacritic.com/reviews/metacritic/user/games/borderlands-4/platform/xbox-series-x/stats/web"
+  }
+ },
+ "meta": {
+  "componentName": null,
+  "componentDisplayName": null,
+  "componentType": null
+ }
+}

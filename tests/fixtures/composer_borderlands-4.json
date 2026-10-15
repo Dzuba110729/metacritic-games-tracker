@@ -1,0 +1,331 @@
+{
+ "components": [
+  {
+   "data": {
+    "item": {
+     "id": 1300648043,
+     "type": "game-title",
+     "typeId": 13,
+     "title": "Borderlands 4",
+     "slug": "borderlands-4",
+     "mustPlay": false,
+     "premiereYear": 2025,
+     "description": "The definitive looter shooter arrives in 2025. \r\n\r\nSee if you have what it takes to go down in history as a legendary Vault Hunter as you search for secret alien treasure, blasting everything in sight.",
+     "platform": "PC",
+     "criticScoreSummary": {
+      "url": "/game/borderlands-4/critic-reviews/",
+      "max": 100,
+      "score": 81,
+      "normalizedScore": 81.1981,
+      "reviewCount": 93,
+      "positiveCount": 75,
+      "neutralCount": 13,
+      "negativeCount": 0,
+      "sentiment": "Generally favorable"
+     },
+     "releaseDate": "2025-09-12",
+     "releaseDateText": "2025-09-12",
+     "production": {
+      "companies": [
+       {
+        "id": 4000000066,
+        "typeId": 1,
+        "typeName": "Developer",
+        "name": "Gearbox Software",
+        "url": "/company/gearbox-software/"
+       },
+       {
+        "id": 4000007658,
+        "typeId": 2,
+        "typeName": "Publisher",
+        "name": "2K Games",
+        "url": "/company/2k-games/"
+       }
+      ],
+      "officialSite": null,
+      "crew": []
+     },
+     "images": [
+      {
+       "id": "7-1757597524",
+       "filename": "7-1757597524.jpg",
+       "dateCreated": {
+        "date": null,
+        "timezone": null
+       },
+       "alt": null,
+       "credits": null,
+       "path": null,
+       "cropGravity": null,
+       "crop": null,
+       "caption": null,
+       "typeName": "mainImage",
+       "imageUrl": null,
+       "width": 708,
+       "height": 392,
+       "sType": null,
+       "bucketType": "catalog",
+       "bucketPath": "/provider/7/2/7-1757597524.jpg",
+       "mediaType": null,
+       "provider": "7"
+      },
+      {
+       "id": "7-1757597583",
+       "filename": "7-1757597583.jpg",
+       "dateCreated": {
+        "date": null,
+        "timezone": null
+       },
+       "alt": null,
+       "credits": null,
+       "path": null,
+       "cropGravity": null,
+       "crop": null,
+       "caption": null,
+       "typeName": "cardImage",
+       "imageUrl": null,
+       "width": 196,
+       "height": 296,
+       "sType": null,
+       "bucketType": "catalog",
+       "bucketPath": "/provider/7/2/7-1757597583.jpg",
+       "mediaType": null,
+       "provider": "7"
+      }
+     ],
+     "video": {
+      "videoId": 10258736,
+      "slug": "borderlands-4",
+      "title": "Borderlands 4 - C4SH Vault Hunter Reveal Trailer",
+      "videoTitle": "Borderlands 4 - C4SH Vault Hunter Reveal Trailer",
+      "duration": 37,
+      "providerId": null,
+      "type": null,
+      "contentType": null,
+      "contentTypeId": 0,
+      "url": null,
+      "description": null,
+      "originalAirDate": "2025-09-29T06:32:00.000+00:00",
+      "displayDatePublished": {
+       "date": "2025-09-29T06:32:00.000+00:00",
+       "timezone": null
+      },
+      "seasonNumber": null,
+      "episodeNumber": null,
+      "images": [],
+      "jwPlayerId": "diIS4GYz",
+      "manifestUrl": "https://cdn.jwplayer.com/manifests/diIS4GYz.m3u8",
+      "embedUrl": "https://cdn.jwplayer.com/players/diIS4GYz.html"
+     },
+     "genres": [
+      {
+       "id": 2300640429,
+       "name": "FPS"
+      }
+     ],
+     "rating": "M",
+     "countries": [
+      "North America",
+      "Japan",
+      "Europe",
+      "Australia",
+      "Korea",
+      "Asia"
+     ],
+     "platforms": [
+      {
+       "id": 1500000128,
+       "name": "PlayStation 5",
+       "criticScoreSummary": {
+        "url": "/game/borderlands-4/critic-reviews/?platform=playstation-5",
+        "max": 100,
+        "score": 78,
+        "normalizedScore": 77.5357,
+        "reviewCount": 27,
+        "positiveCount": 22,
+        "neutralCount": 5,
+        "negativeCount": 0,
+        "sentiment": "Generally favorable"
+       },
+       "relatedGameId": 1400785590,
+       "isLeadPlatform": false,
+       "releaseDate": "2025-09-12",
+       "slug": "playstation-5"
+      },
+      {
+       "id": 1500000129,
+       "name": "Xbox Series X",
+       "criticScoreSummary": {
+        "url": "/game/borderlands-4/critic-reviews/?platform=xbox-series-x",
+        "max": 100,
+        "score": 90,
+        "normalizedScore": 89.5,
+        "reviewCount": 7,
+        "positiveCount": 6,
+        "neutralCount": 0,
+        "negativeCount": 0,
+        "sentiment": "Universal acclaim"
+       },
+       "relatedGameId": 1400785591,
+       "isLeadPlatform": false,
+       "releaseDate": "2025-09-12",
+       "slug": "xbox-series-x"
+      },
+      {
+       "id": 1500000019,
+       "name": "PC",
+       "criticScoreSummary": {
+        "url": "/game/borderlands-4/critic-reviews/?platform=pc",
+        "max": 100,
+        "score": 81,
+        "normalizedScore": 81.1981,
+        "reviewCount": 93,
+        "positiveCount": 75,
+        "neutralCount": 13,
+        "negativeCount": 0,
+        "sentiment": "Generally favorable"
+       },
+       "relatedGameId": 1400785592,
+       "isLeadPlatform": true,
+       "releaseDate": "2025-09-12",
+       "slug": "pc"
+      },
+      {
+       "id": 1500000154,
+       "name": "Nintendo Switch 2",
+       "criticScoreSummary": {
+        "url": "/game/borderlands-4/critic-reviews/?platform=nintendo-switch-2",
+        "max": 100,
+        "score": null,
+        "normalizedScore": null,
+        "reviewCount": null,
+        "positiveCount": null,
+        "neutralCount": null,
+        "negativeCount": null,
+        "sentiment": null
+       },
+       "relatedGameId": 1400828397,
+       "isLeadPlatform": false,
+       "releaseDate": null,
+       "slug": "nintendo-switch-2"
+      }
+     ],
+     "gameTaxonomy": {
+      "franchises": [
+       {
+        "id": 1100001202,
+        "name": "Borderlands"
+       }
+      ],
+      "family": {
+       "id": 1200640429,
+       "name": "Borderlands 4"
+      },
+      "title": {
+       "id": 1300648043,
+       "name": "Borderlands 4"
+      },
+      "game": {
+       "id": 1400785592,
+       "name": "Borderlands 4"
+      },
+      "platform": {
+       "id": 1500000019,
+       "name": "PC"
+      }
+     }
+    }
+   },
+   "links": {
+    "self": {
+     "href": "https://backend.metacritic.com/games/metacritic/borderlands-4/web?componentName=product&componentDisplayName=Product&componentType=Product"
+    }
+   },
+   "meta": {
+    "componentName": "product",
+    "componentDisplayName": "Product",
+    "componentType": "Product"
+   }
+  },
+  {
+   "data": {
+    "item": {
+     "id": null,
+     "max": 100,
+     "score": 81,
+     "reviewCount": 88,
+     "positiveCount": 75,
+     "neutralCount": 13,
+     "negativeCount": 0,
+     "sentiment": "Generally favorable",
+     "url": "/game/borderlands-4/critic-reviews/?platform=pc"
+    }
+   },
+   "links": {
+    "self": {
+     "href": "https://backend.metacritic.com/reviews/metacritic/critic/games/borderlands-4/stats/web?componentName=critic-score-summary&componentDisplayName=Critic+Score+Summary&componentType=MetaScoreSummary"
+    }
+   },
+   "meta": {
+    "componentName": "critic-score-summary",
+    "componentDisplayName": "Critic Score Summary",
+    "componentType": "MetaScoreSummary"
+   }
+  },
+  {
+   "data": {
+    "item": {
+     "id": "1400785592",
+     "max": 10,
+     "score": 4.7,
+     "reviewCount": 928,
+     "positiveCount": 310,
+     "neutralCount": 178,
+     "negativeCount": 440,
+     "sentiment": "Generally unfavorable",
+     "url": "/game/borderlands-4/user-reviews/?platform=pc"
+    }
+   },
+   "links": {
+    "self": {
+     "href": "https://backend.metacritic.com/reviews/metacritic/user/games/borderlands-4/stats/web?componentName=user-score-summary&componentDisplayName=User+Score+Summary&componentType=MetaScoreSummary"
+    }
+   },
+   "meta": {
+    "componentName": "user-score-summary",
+    "componentDisplayName": "User Score Summary",
+    "componentType": "MetaScoreSummary"
+   }
+  }
+ ],
+ "meta": {
+  "edition": "us",
+  "title": "Borderlands 4 Reviews",
+  "id": "1300648043",
+  "slug": "borderlands-4",
+  "category": null,
+  "description": "The definitive looter shooter arrives in 2025. \r\n\r\nSee if you have what it takes to go down in history as a legendary Vault Hunter as you search for secret alien treasure, blasting everything in sight.",
+  "pageType": "product",
+  "section": "PC",
+  "image": null,
+  "typeName": "game-title",
+  "franchises": [
+   "Borderlands"
+  ],
+  "platforms": [
+   "PlayStation 5",
+   "Xbox Series X",
+   "PC",
+   "Nintendo Switch 2"
+  ],
+  "genres": [
+   "FPS"
+  ],
+  "publishers": [
+   "Gearbox Software",
+   "2K Games"
+  ],
+  "game": "Borderlands 4",
+  "score": "81"
+ }
+}

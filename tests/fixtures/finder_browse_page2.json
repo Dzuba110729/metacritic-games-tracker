@@ -1,0 +1,1614 @@
+{
+ "data": {
+  "id": "3e74c360-4c38-4ea1-e1d8-51aefae12ea7",
+  "totalResults": 181276,
+  "items": [
+   {
+    "id": 1300639734,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Hunt Me",
+    "slug": "hunt-me",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "6-1-1031428-52.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 460,
+     "height": 215,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/6/12/6-1-1031428-52.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/hunt-me/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Survival"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "HUNT ME is a co-op horror survival game for 1-4 players. Gather the ingredients for the ritual, weaken the threat and banish it. Be careful, you're also the prey!\r\n",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300638380,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "THE GUARDIANS",
+    "slug": "the-guardians",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "6-1-1028350-52.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 1200,
+     "height": 1600,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/6/12/6-1-1028350-52.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/the-guardians/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Western RPG"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "For once, the world is at peace. The Guardians maintain the peace. They are the big brothers of the sky.\r\n\r\nThe Guardians is a decision based RPG with flight simulator and first person shooter mechanics. Every decision you make has consequences, your actions will shape the outcome.\r\n\r\nDo you become a farmer, a medical professional, join the military, or even become unemployed. Whatever you choose will determine how you will experience the world.",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300707825,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Dupery: A Game of Solo Deduction",
+    "slug": "dupery-a-game-of-solo-deduction",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "6-1-1174047-52.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 460,
+     "height": 215,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/6/12/6-1-1174047-52.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/dupery-a-game-of-solo-deduction/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Point-and-Click"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": null,
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300547385,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Frosthaven",
+    "slug": "frosthaven",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "7-1791307736.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 363,
+     "height": 561,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/7/2/7-1791307736.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/frosthaven/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 1,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Board"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "FROSTHAVEN is the story of a small outpost far to the north of the capital city of White Oak, an outpost barely surviving the harsh weather as well as invasions from forces both known and unknown. There, a group of mercenaries at the end of their rope will help bring back this settlement from the edge of destruction. \r\n\r\nFrosthaven is a standalone adventure from the designer and publisher of Gloomhaven that features sixteen new characters, three new races, more than twenty new enemies, more than one hundred new items, and a new, 100-scenario campaign. In addition to having the well-known combat mechanisms of Gloomhaven, Frosthaven will feature much more to do outside of combat, such as numerous mysteries to solve, a seasonal event system to live through, and player control over how this ramshackle village expands, with each new building offering new ways to progress.",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300691240,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Hypnostasis",
+    "slug": "hypnostasis",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "6-1-1136099-52.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 460,
+     "height": 215,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/6/12/6-1-1136099-52.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/hypnostasis/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Survival"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": null,
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300696881,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "100 Cats Lost in Canada 2 Find & Color",
+    "slug": "100-cats-lost-in-canada-2-find-and-color",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "6-1-1148690-52.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 460,
+     "height": 215,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/6/12/6-1-1148690-52.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/100-cats-lost-in-canada-2-find-and-color/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Hidden Object"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": null,
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300707028,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Chicks In Trouble",
+    "slug": "chicks-in-trouble",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "6-1-1172227-52.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 460,
+     "height": 215,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/6/12/6-1-1172227-52.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/chicks-in-trouble/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Simulation"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": null,
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300739802,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "AMPANIC",
+    "slug": "ampanic",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "6-1-1241640-52.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 460,
+     "height": 215,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/6/12/6-1-1241640-52.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/ampanic/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Tycoon"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "AIM × Panic Shop Management! Gather materials, process them, craft items, and serve customers―― A hyper-fast shop management game where everything is controlled with your aim. The moment even a single customer leaves, it’s game over. Online multiplayer supported",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300739909,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Tavern Talk: Complete Edition",
+    "slug": "tavern-talk-complete-edition",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/tavern-talk-complete-edition/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Visual Novel"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000124,
+      "name": "Nintendo Switch"
+     }
+    ],
+    "inTheaters": false,
+    "description": "Discover the cozy fantasy world of Tavern Talk Complete Edition, the first-ever physical Nintendo Switch release of the beloved visual novel adventure.\r\n\r\nThis Deluxe Edition includes the full base game along with both the Pirate Palooza and Tempest Tantrum DLC on cartridge, delivering the complete Wayfarer’s Inn experience in one definitive package.",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300745881,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "The Nightmare Box Vol III",
+    "slug": "the-nightmare-box-vol-iii",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/the-nightmare-box-vol-iii/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Compilation"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000128,
+      "name": "PlayStation 5"
+     }
+    ],
+    "inTheaters": false,
+    "description": "Following the collections of The Nightmare Box Vol. 1 and 2, released in 2025, The Nightmare Box Vol. 3 includes NO-SKIN, Menace from the Deep and Stasis. Digitally published by Feardemic, the titles in The Nightmare Box Vol. 3 will drag you into the depths of fear. \r\n\r\nMeridiem has been responsible for the design and manufacture of this game pack, which aside from the three titles includes a set of three tarot cards to add to the collection of cards from the previous volume.",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300758763,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Project RedTeam: Contract Offensive",
+    "slug": "project-redteam-contract-offensive",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/project-redteam-contract-offensive/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Card Battle"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "Slash fruits in the coolest way.Ever wanted to be a be the greatest fruit slasher in the world ?This is your chance. Jump onboard and compete with players worldwise to be the best fruit slasher. Slash multiple fruits with a single stroke and earn more points, extra time or awards.FruitSlasher contains:- 3 game modes- Superior graphics- Addictive game concept- GameCenter support with a different leaderboard for each mode.- Combo cuts to earn more points, time or awards.- Upgrade to ad free Full Game",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300765744,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Shelf Stacker: Toy Store",
+    "slug": "shelf-stacker-toy-store",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/shelf-stacker-toy-store/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Simulation"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "This great new word game will challenge your brain as you work out which one word answer links all four clue words, each correct answer will be hidden within the 12 scrambled letters. Some answers are straightforward and some are more fiendish, but don't worry, if you get stuck you can choose to see a helpful hint letter or remove some of the scrambled letters to get you closer to revealing the right answer!This game will have you picking it up over and over again as you try to crack the code which link the words!",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300767597,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Fossil Digger",
+    "slug": "fossil-digger",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/fossil-digger/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Simulation"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "A first-person fossil-digging game about digging down. Unearth bones hidden in the rock, bring them to the museum, and assemble them. Sell ores, upgrade your gear, and dig into deeper, darker strata. From Tyrannosaurus to mammoth to legendary beasts—uncover the ??? buried at the very bottom.",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300763252,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Giblings",
+    "slug": "giblings",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/giblings/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Action"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "Brawl in a destructible combat arena. You can dig under someone or blow up the ground they're standing on. Build a cage and wait it out or build a bridge and escape. Play with up to five other people (or bots) and build your strategic arsenal choosing between 28 different weapons.",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300765229,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "KAEBON",
+    "slug": "kaebon",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/kaebon/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Strategy"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "&quot;Hi, I'm Scat the Cat and you are about to experience my very first game! It's called Scat Fishing! (=^?^=)&quot;&quot;My mission as a cat is to catch every fish that's around my island. Unfortunately, I can't do it myself so I will need your help!&quot;Features of my game!*********************************** CATCH fishes with my magic net!* 40 DIFFERENT types of fish and more incoming!* PLENTY of upgrades! (It helps with the fishing, trust me.)* SPECIAL Hidden Quests!* SIMPLE, Short and Fun! Just got a minute to spare? This is the game for you!* CUTE and colorful graphics if I do say so myself. I look cute right? Riiiggghhhhhhtt?**********************************&quot;That's about it for now. See you in the game! Have fun!  d(=^?&omega;?^=)b&quot;&quot;Oh and don't forget to check out my makers facebook page and twitter as well!&quot;Facebook: http://www.facebook.com/MouseAndDogProductionsTwitter: http://twitter.com/MouseAndDogProd",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300766154,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Invaders to Earth",
+    "slug": "invaders-to-earth",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/invaders-to-earth/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Space Combat Sim"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "***********A terrifying multiplayer racing experience**********Can you help the ninja and pirate escape the terrifying zombies?Your heart will beat faster and faster as the tension builds up!Their cries will drive you mad!Multiplayer function:-See your opponents on the screen-Race 10 or more at a time-Challenge your friends on FacebookWhat are you waiting for?Download now!!!",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300767654,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Backrooms Adventure",
+    "slug": "backrooms-adventure",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "6-1-1290952-52.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 460,
+     "height": 215,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/6/12/6-1-1290952-52.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/backrooms-adventure/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "First-Person Adventure"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "You were walking home, and then the ground wasn't there. Now it's damp carpet, a hum that never stops, and yellow rooms that go on longer than any building could. Someone came through here before you. Follow what they left behind, solve the puzzle, and find a way out.",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300768131,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Rock Hunter",
+    "slug": "rock-hunter",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/rock-hunter/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "FPS"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "Blast through flying rocks, earn cash, and purchase upgrades! Hire Hunters and watch them earn money in this incremental shooter.",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300762115,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Todd The Technician",
+    "slug": "todd-the-technician",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "6-1-1281614-52.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 460,
+     "height": 215,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/6/12/6-1-1281614-52.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/todd-the-technician/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "First-Person Adventure"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "A first-person puzzle game where you're guided by a slightly sarcastic AI earpiece named A.N.D.I., you will use tools, warp reality, and solve a variety of mechanical and logic-based puzzles to keep the strange technology of the Anomaly Corps running, all while hoping you won't get fired!",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300767671,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Brick by Brick: Tidy Up the Small Town!",
+    "slug": "brick-by-brick-tidy-up-the-small-town",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/brick-by-brick-tidy-up-the-small-town/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Simulation"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "Brick By Brick is a relaxing tidy-up game you can play solo or co-op with up to 5 players. Collect, sort, and place 18,490 bricks to rebuild a charming town. Unlock helpful abilities and watch scattered piles become finished buildings. One brick at a time!",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300768134,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Doodle Smash (Nozomi Shiratori)",
+    "slug": "doodle-smash-nozomi-shiratori",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/doodle-smash-nozomi-shiratori/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Sandbox"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "Your doodle is your fighter! Draw a character and watch it brawl in a knockout-style party fighter. Its size, shape and colours decide its stats and one of 30 elemental skills. Play up to 4 on one screen, battle the CPU, or climb the online ranked Colosseum against doodles from around the world.",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300768287,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "GO DUB YOURSELF!",
+    "slug": "go-dub-yourself",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/go-dub-yourself/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Party"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "Grab a mic and dub over your favourite clips with your friends. Turn any video into a clip pack, share it on the workshop, then battle it out on the couch or online for up to 12 players. Auto score or judge each other, the choice is yours!",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300766153,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Auto Match Blast",
+    "slug": "auto-match-blast",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": null,
+    "criticScoreSummary": {
+     "url": "/game/auto-match-blast/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "Matching Puzzle"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "LIGHTS TURN OFF AND THE NEW MOTOGP 2013 BEGINSFeel the race as never before with MotoGP&trade; Fantasy Manager 2013! The new game that makes you enjoy the Motorcycle World Championship from the inside! Set up your own team and defy real users from around the world to be the champions of the 3 categories.Download the new MotoGP&trade; Fantasy Manager, build new amazing Facilities, get new equipments to be the best and race  new exciting Gran Prix! Enjoy the new visual and functional improvements that will make you love even more your team MotoGP&trade;. And this year you must level up so as to unlock new features.New riders' levels, new equipments for your motos, new facilities. Earn much money and be more competitive by leveling up; you can also skip the time you have to wait for building your Factory!Complete the new missions of the game so as to receive more info and  grow up faster!Start the engine and hire the best riders of MotoGP&trade;! Download all the adrenaline of MotoGP&trade; Fantasy Manager 2013! Play FREE!",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   },
+   {
+    "id": 1300766195,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "La maldicion de Max",
+    "slug": "la-maldicion-de-max",
+    "premiereYear": 2026,
+    "releaseDate": "2026-10-15",
+    "rating": null,
+    "rank": 1,
+    "seoUrl": null,
+    "image": {
+     "id": null,
+     "filename": "6-1-1288601-52.jpg",
+     "dateCreated": {
+      "date": null,
+      "timezone": null
+     },
+     "alt": null,
+     "credits": null,
+     "path": null,
+     "cropGravity": null,
+     "crop": null,
+     "caption": null,
+     "typeName": null,
+     "imageUrl": null,
+     "width": 460,
+     "height": 215,
+     "sType": null,
+     "bucketType": "catalog",
+     "bucketPath": "/provider/6/12/6-1-1288601-52.jpg",
+     "mediaType": null,
+     "provider": null
+    },
+    "criticScoreSummary": {
+     "url": "/game/la-maldicion-de-max/critic-reviews/",
+     "max": 100,
+     "score": null,
+     "reviewCount": 0,
+     "positiveCount": 0,
+     "neutralCount": 0,
+     "negativeCount": 0,
+     "sentiment": "tbd"
+    },
+    "genres": [
+     {
+      "id": null,
+      "name": "First-Person Adventure"
+     }
+    ],
+    "numberOfSeasons": 0,
+    "season": null,
+    "network": null,
+    "platforms": [
+     {
+      "id": 1500000019,
+      "name": "PC"
+     }
+    ],
+    "inTheaters": false,
+    "description": "After the death of your mother, Sarah, and the fall of the Consortium, you infiltrate the Phoenix Complex seeking revenge. \r\n\r\nOnce inside the complex, your main mission changes completely: you must find a way to escape alive. To do so, you'll have to delve deep and thoroughly explore the complex's workers' area, an industrial sector filled with dark corridors, blocked entrances, and traps.\r\n\r\nThroughout your journey, Byte's help will be crucial. Together with Byte, you'll have to solve various puzzles and riddles. However, the pressure is constant: while using your ingenuity to solve the enigmas of the environment, you must maintain absolute stealth. Maxin is lurking, stalking around every corner, and he won't stop until he finds you. Avoid drawing attention, hide when necessary, and don't let Maxin kill you on your way out.",
+    "duration": 0,
+    "streamingDates": {
+     "videoClosestPastAvailableDate": null,
+     "videoClosestFutureAvailableDate": null,
+     "videoClosestPastExpiryDate": null,
+     "videoClosestFutureExpiryDate": null,
+     "videoClosestPastAvailableNetworkId": null,
+     "videoClosestFutureAvailableNetworkId": null,
+     "videoClosestPastExpiryNetworkId": null,
+     "videoClosestFutureExpiryNetworkId": null,
+     "networkStreamingDates": null
+    },
+    "userScore": {
+     "score": null
+    }
+   }
+  ],
+  "genres": null,
+  "network": null
+ },
+ "links": {
+  "self": {
+   "href": "https://backend.metacritic.com/finder/metacritic/web?sortBy=-releaseDate&productType=games&offset=24&limit=24&mcoTypeId=13",
+   "meta": {
+    "pageNum": 2,
+    "count": 24
+   }
+  },
+  "prev": {
+   "href": "https://backend.metacritic.com/finder/metacritic/web?sortBy=-releaseDate&productType=games&offset=0&limit=24&mcoTypeId=13",
+   "meta": {
+    "pageNum": 1,
+    "count": 24
+   }
+  },
+  "next": {
+   "href": "https://backend.metacritic.com/finder/metacritic/web?sortBy=-releaseDate&productType=games&offset=48&limit=24&mcoTypeId=13",
+   "meta": {
+    "pageNum": 3,
+    "count": 24
+   }
+  },
+  "first": {
+   "href": "https://backend.metacritic.com/finder/metacritic/web?sortBy=-releaseDate&productType=games&offset=0&limit=24&mcoTypeId=13",
+   "meta": {
+    "pageNum": 1,
+    "count": 24
+   }
+  },
+  "last": {
+   "href": "https://backend.metacritic.com/finder/metacritic/web?sortBy=-releaseDate&productType=games&offset=181272&limit=24&mcoTypeId=13",
+   "meta": {
+    "pageNum": 7554,
+    "count": 4
+   }
+  }
+ },
+ "meta": {
+  "componentName": null,
+  "componentDisplayName": null,
+  "componentType": null
+ }
+}

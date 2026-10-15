@@ -1,0 +1,25 @@
+{
+ "data": {
+  "item": {
+   "id": "1400785592",
+   "max": 10,
+   "score": 4.7,
+   "reviewCount": 928,
+   "positiveCount": 310,
+   "neutralCount": 178,
+   "negativeCount": 440,
+   "sentiment": "Generally unfavorable",
+   "url": "/game/borderlands-4/user-reviews/?platform=pc"
+  }
+ },
+ "links": {
+  "self": {
+   "href": "https://backend.metacritic.com/reviews/metacritic/user/games/borderlands-4/platform/pc/stats/web"
+  }
+ },
+ "meta": {
+  "componentName": null,
+  "componentDisplayName": null,
+  "componentType": null
+ }
+}

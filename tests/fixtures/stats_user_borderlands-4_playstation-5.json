@@ -1,0 +1,25 @@
+{
+ "data": {
+  "item": {
+   "id": "1400785590",
+   "max": 10,
+   "score": 5.5,
+   "reviewCount": 178,
+   "positiveCount": 75,
+   "neutralCount": 29,
+   "negativeCount": 74,
+   "sentiment": "Mixed or average",
+   "url": "/game/borderlands-4/user-reviews/?platform=playstation-5"
+  }
+ },
+ "links": {
+  "self": {
+   "href": "https://backend.metacritic.com/reviews/metacritic/user/games/borderlands-4/platform/playstation-5/stats/web"
+  }
+ },
+ "meta": {
+  "componentName": null,
+  "componentDisplayName": null,
+  "componentType": null
+ }
+}
