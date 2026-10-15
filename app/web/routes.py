@@ -65,6 +65,11 @@ def userscore_text(value: float | None) -> str:
     return "—" if value is None else f"{value:.1f}"
 
 
+def thousands(value: int | None) -> str:
+    """1234567 -> «1 234 567» (неразрывные пробелы)."""
+    return "—" if value is None else f"{value:,}".replace(",", "\u00a0")
+
+
 def cover(url: str | None) -> str | None:
     return url if is_metacritic_url(url) else None
 
@@ -76,7 +81,12 @@ env = Environment(
     lstrip_blocks=True,
 )
 env.filters.update(
-    ru_date=ru_date, tone=tone, userscore=userscore_text, cover=cover, http_url=http_url
+    ru_date=ru_date,
+    tone=tone,
+    userscore=userscore_text,
+    cover=cover,
+    http_url=http_url,
+    thousands=thousands,
 )
 env.globals.update(plural=plural, youtube_id=youtube_id, SORTS=queries.SORTS)
 templates = Jinja2Templates(env=env)

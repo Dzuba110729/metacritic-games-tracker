@@ -71,7 +71,28 @@ def client(tmp_path):
                         embedding=_vec(3),
                         video_url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                     ),
-                    _game("delta", "Delta", None, []),
+                    _game(
+                        "delta",
+                        "Delta",
+                        None,
+                        [],
+                        letsplay={
+                            "status": "ok",
+                            "video_id": "abcdefghijk",
+                            "url": "https://www.youtube.com/watch?v=abcdefghijk",
+                            "title": "Delta <b>lets play</b>",
+                            "channel": "Блогер",
+                            "views": 1234567,
+                            "summary": {
+                                "impression": "Блогеру понравилось.",
+                                "pros": ["Бои"],
+                                "cons": [],
+                                "recommend": "да",
+                            },
+                            "subtitles": "en (авто)",
+                            "checked_at": "2026-10-15T10:00:00",
+                        },
+                    ),
                 ]
             )
             db.commit()
@@ -242,3 +263,32 @@ def test_url_helpers():
     assert youtube_id("https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=1") == "dQw4w9WgXcQ"
     assert youtube_id('https://www.youtube.com/watch?v=bad"id') is None
     assert youtube_id("https://cdn.jwplayer.com/players/x.html") is None
+
+
+def test_game_page_letsplay(client):
+    text = client.get("/game/delta").text
+    assert "https://www.youtube-nocookie.com/embed/abcdefghijk" in text
+    assert "1\u00a0234\u00a0567 просмотров" in text
+    assert "Блогер" in text and "Блогеру понравилось." in text
+    assert "Советует играть:</b> да" in text
+    assert "Претензий блогер не высказал" in text
+    assert "<b>lets play</b>" not in text  # заголовок ролика экранирован
+
+
+@pytest.mark.parametrize(
+    ("letsplay", "expected"),
+    [
+        (None, "Летсплей ещё не искали"),
+        ({"status": "not_found"}, "нет летсплея длиннее 5 минут"),
+        ({"status": "no_subtitles"}, "без субтитров"),
+        ({"status": "blocked"}, "YouTube временно ограничил"),
+        ({"status": "error", "url": "javascript:alert(1)"}, "Конспект пока не получился"),
+    ],
+)
+def test_game_page_letsplay_statuses(client, letsplay, expected):
+    with client.app.state.sessionmaker() as db:
+        db.add(Game(slug="lp", title="LP", letsplay=letsplay))
+        db.commit()
+    text = client.get("/game/lp").text
+    assert expected in text
+    assert "javascript:" not in text

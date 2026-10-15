@@ -7,6 +7,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app.config import Settings, get_settings
 from app.db import init_db, make_engine, make_sessionmaker
+from app.letsplay import LetsplayHook
 from app.web import monitor
 from app.web.routes import STATIC_DIR, not_found, router
 from app.web.security import SecurityHeadersMiddleware
@@ -28,7 +29,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         app.state.settings = settings
         app.state.engine = engine
         app.state.sessionmaker = make_sessionmaker(engine)
-        worker = Worker(Deps(settings=settings, factory=app.state.sessionmaker))
+        worker = Worker(
+            Deps(settings=settings, factory=app.state.sessionmaker, letsplay=LetsplayHook())
+        )
         app.state.worker = worker
         if settings.scheduler_enabled:
             worker.start()

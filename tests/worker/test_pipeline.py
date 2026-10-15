@@ -165,3 +165,58 @@ def test_listing_failure_marks_run_failed(deps, factory, metacritic):
     assert run.errors and run.errors[0]["slug"] is None
     assert run.finished_at - run.started_at < timedelta(minutes=1)
     assert not deps.state.snapshot()["running"]
+
+
+def test_letsplay_is_last_stage_and_youtube_errors_do_not_break_run(deps, factory):
+    seen = []
+
+    def letsplay(db, game, llm):
+        # К этапу летсплея эмбеддинг уже посчитан, LLM прогона передана.
+        assert game.embedding is not None and llm is not None
+        seen.append(game.slug)
+        status = "blocked" if len(seen) % 2 else "ok"
+        game.letsplay = {"status": status, "error": "HTTP Error 429" if status != "ok" else None}
+        return status
+
+    deps.letsplay = letsplay
+    run_id = pipeline.run("schedule", deps)
+
+    run = _run(factory, run_id)
+    assert run.status == "ok"  # blocked — статус в карточке, не ошибка прогона
+    assert len(seen) == 20
+    assert {g.letsplay["status"] for g in _games(factory)} == {"ok", "blocked"}
+    events = [e for e in deps.state.snapshot()["events"] if "YouTube" in e["message"]]
+    assert events and events[0]["level"] == "warning"
+
+
+def test_letsplay_crash_is_game_error(deps, factory):
+    def letsplay(db, game, llm):
+        raise RuntimeError("boom")
+
+    deps.letsplay = letsplay
+    run_id = pipeline.run("schedule", deps)
+
+    run = _run(factory, run_id)
+    assert run.status == "partial"
+    assert run.games_processed == 20
+    assert {e["stage"] for e in run.errors} == {"letsplay"}
+    assert all(g.last_processed_date == TODAY for g in _games(factory))
+
+
+def test_letsplay_budget_disables_llm(deps, factory, fake_llm):
+    from app.llm.client import BudgetExceeded
+
+    calls = []
+
+    def letsplay(db, game, llm):
+        calls.append(llm)
+        if llm is not None:
+            raise BudgetExceeded("limit")
+        return None
+
+    deps.letsplay = letsplay
+    run_id = pipeline.run("schedule", deps)
+
+    assert _run(factory, run_id).status == "paused_budget"
+    assert calls[0] is not None and calls[1:] == [None] * 19
+    assert fake_llm.calls == 2  # резюме отзывов только у первой игры

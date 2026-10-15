@@ -117,8 +117,57 @@
   </div>
   <div id="letsplay">
     <h2 class="block__title">Летсплей</h2>
-    {# Шаг 8 заполнит game.letsplay: ролик YouTube и пересказ по субтитрам. #}
-    <p class="muted">Летсплей ещё не найден. Ищем его на YouTube при каждом обходе.</p>
+    {% set lp = game.letsplay or {} %}
+    {% set lp_id = youtube_id(lp.url) %}
+    {% if lp_id %}
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/{{ lp_id }}" title="Летсплей {{ game.title }}"
+              loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+              allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
+    <p class="lp-meta">
+      {% if lp.title %}<span class="lp-meta__title">{{ lp.title }}</span>{% endif %}
+      {% if lp.channel %}<span>{{ lp.channel }}</span>{% endif %}
+      {% if lp.views is not none %}<span>{{ lp.views | thousands }} {{ plural(lp.views, "просмотр", "просмотра", "просмотров") }}</span>{% endif %}
+    </p>
+    {% endif %}
+    {% if lp.status == "ok" and lp.summary %}
+    {% set s = lp.summary %}
+    <article class="summary summary--letsplay">
+      <h3 class="summary__title">Конспект по субтитрам</h3>
+      <p class="lp-impression">{{ s.impression }}</p>
+      <div class="summary__cols">
+        <div>
+          <h4 class="summary__sub summary__sub--plus">Понравилось</h4>
+          <ul class="points">
+            {% for p in s.pros %}<li>{{ p }}</li>{% endfor %}
+          </ul>
+        </div>
+        <div>
+          <h4 class="summary__sub summary__sub--minus">Не понравилось</h4>
+          {% if s.cons %}
+          <ul class="points">
+            {% for p in s.cons %}<li>{{ p }}</li>{% endfor %}
+          </ul>
+          {% else %}
+          <p class="summary__empty">Претензий блогер не высказал.</p>
+          {% endif %}
+        </div>
+      </div>
+      <p class="summary__verdict"><b>Советует играть:</b> {{ s.recommend }}</p>
+      {% if lp.subtitles %}<p class="summary__meta">Субтитры: {{ lp.subtitles }}</p>{% endif %}
+    </article>
+    {% elif lp.status == "not_found" %}
+    <p class="muted">На YouTube нет летсплея длиннее 5 минут с названием игры. Поищем снова завтра.</p>
+    {% elif lp.status == "no_subtitles" %}
+    <p class="muted">Летсплеи есть, но без субтитров: конспект не из чего сделать. Проверим снова завтра.</p>
+    {% elif lp.status == "blocked" %}
+    <p class="muted">YouTube временно ограничил запросы. Попробуем снова завтра.</p>
+    {% elif lp.status %}
+    <p class="muted">Конспект пока не получился. Попробуем снова завтра.</p>
+    {% else %}
+    <p class="muted">Летсплей ещё не искали. Он появится после ближайшего обхода.</p>
+    {% endif %}
   </div>
 </section>
 

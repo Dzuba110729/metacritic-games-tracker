@@ -1,4 +1,5 @@
-"""Конвейер одного прогона: отбор игр -> данные Metacritic -> отзывы -> резюме -> эмбеддинг."""
+"""Конвейер одного прогона: отбор игр -> данные Metacritic -> отзывы -> резюме -> эмбеддинг
+-> летсплей."""
 
 import logging
 import threading
@@ -28,8 +29,16 @@ log = logging.getLogger(__name__)
 RUN_LOCK = threading.Lock()
 MAX_ERROR_CHARS = 300
 
-# Хук летсплея (шаг 8): получает сессию и игру, сам пишет результат в game.letsplay.
-LetsplayHook = Callable[[Session, Game], None]
+# Хук летсплея: получает сессию, игру и LLM прогона (None — резюме выключены),
+# сам пишет game.letsplay и возвращает статус (None — проверка сегодня не нужна).
+LetsplayHook = Callable[[Session, Game, LlmClient | None], str | None]
+LETSPLAY_EVENTS = {
+    "ok": ("летсплей найден, конспект готов", "info"),
+    "not_found": ("летсплей не найден", "info"),
+    "no_subtitles": ("у летсплеев нет субтитров", "info"),
+    "blocked": ("YouTube ограничил запросы", "warning"),
+    "error": ("ошибка летсплея", "warning"),
+}
 
 
 @dataclass
@@ -223,9 +232,17 @@ def _process_game(ctx: _Run, mc: MetacriticClient, slug: str, today: date) -> No
         if deps.letsplay is not None:
             st.set_stage("letsplay")
             try:
-                deps.letsplay(db, game)
+                status = deps.letsplay(db, game, ctx.llm)
+            except BudgetExceeded as exc:
+                ctx.disable_llm(f"дневной бюджет исчерпан ({exc})", budget=True)
             except Exception as exc:
                 ctx.error(slug, "letsplay", exc)
+            else:
+                # Статусы YouTube — не ошибки прогона: повтор будет на следующих обходах.
+                if status is not None:
+                    text, level = LETSPLAY_EVENTS.get(status, (status, "info"))
+                    detail = (game.letsplay or {}).get("error")
+                    st.event(f"{slug}: {text}" + (f" ({detail})" if detail else ""), level)
 
         if mark_processed:
             game.last_processed_date = today
