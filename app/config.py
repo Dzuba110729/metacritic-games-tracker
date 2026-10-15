@@ -10,6 +10,9 @@ class Settings(BaseSettings):
     anthropic_api_key: SecretStr = SecretStr("")
     llm_model: str = "claude-haiku-5-5"
     llm_daily_budget_usd: float = 3.0
+    # Цена Haiku 5.5 за 1M токенов (промт до 100K токенов).
+    llm_price_input_per_mtok: float = 0.10
+    llm_price_output_per_mtok: float = 0.50
     tz: str = "Europe/Moscow"
     database_url: str = "sqlite:///data/games.db"
     schedule_minutes: int = 60
