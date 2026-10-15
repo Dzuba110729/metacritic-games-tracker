@@ -10,6 +10,10 @@ class Base(DeclarativeBase):
     pass
 
 
+def _casefold(value: str | None) -> str | None:
+    return value.casefold() if isinstance(value, str) else value
+
+
 def make_engine(url: str) -> Engine:
     parsed = make_url(url)
     if parsed.get_backend_name() == "sqlite" and parsed.database not in (None, "", ":memory:"):
@@ -26,6 +30,8 @@ def make_engine(url: str) -> Engine:
             cur.execute("PRAGMA foreign_keys=ON")
             cur.execute("PRAGMA busy_timeout=5000")
             cur.close()
+            # LOWER() в SQLite понимает только ASCII. Для поиска по кириллице — Python casefold.
+            dbapi_conn.create_function("casefold", 1, _casefold, deterministic=True)
 
     return engine
 

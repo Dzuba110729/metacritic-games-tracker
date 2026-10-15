@@ -1,0 +1,38 @@
+{% macro score_tag(value, label, user=False) %}
+{% set t = value | tone(10 if user else 100) %}
+<span class="score score--{{ t }}" title="{{ label }}">
+  <span class="score__label">{{ label }}</span>
+  <span class="score__value">{% if value is none %}—{% elif user %}{{ value | userscore }}{% else %}{{ value }}{% endif %}</span>
+</span>
+{% endmacro %}
+
+{% macro summary_block(summary, title, kind) %}
+<article class="summary summary--{{ kind }}">
+  <h3 class="summary__title">{{ title }}</h3>
+  {% if not summary %}
+  <p class="summary__empty">Резюме готовится. Оно появится после ближайшего обхода.</p>
+  {% elif summary.status == "few_reviews" %}
+  <p class="summary__empty">
+    Мало отзывов{% if summary.based_on %}: пока {{ summary.based_on }} {{ plural(summary.based_on, "отзыв", "отзыва", "отзывов") }}{% endif %}.
+    Резюме появится, когда их станет хотя бы три.
+  </p>
+  {% else %}
+  <div class="summary__cols">
+    <div>
+      <h4 class="summary__sub summary__sub--plus">Нравится</h4>
+      <ul class="points">
+        {% for p in summary.likes %}<li>{{ p }}</li>{% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h4 class="summary__sub summary__sub--minus">Не нравится</h4>
+      <ul class="points">
+        {% for p in summary.dislikes %}<li>{{ p }}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+  <p class="summary__verdict"><b>Итог.</b> {{ summary.verdict }}</p>
+  <p class="summary__meta">По {{ summary.based_on }} {{ plural(summary.based_on, "отзыву", "отзывам", "отзывам") }}</p>
+  {% endif %}
+</article>
+{% endmacro %}

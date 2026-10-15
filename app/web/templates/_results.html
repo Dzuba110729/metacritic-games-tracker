@@ -1,0 +1,62 @@
+{% from "_macros.html" import score_tag %}
+<p class="count">
+  {% if result.total %}
+  {{ result.total }} {{ plural(result.total, "игра", "игры", "игр") }}{% if q %} по запросу «{{ q }}»{% endif %}{% if platform %} на {{ platform }}{% endif %}
+  {% endif %}
+</p>
+
+{% if result.rows %}
+<ul class="grid">
+  {% for row in result.rows %}
+  {% set g = row.game %}
+  <li class="card">
+    <a class="card__link" href="/game/{{ g.slug }}">
+      <div class="card__cover">
+        {% if g.cover_url | cover %}
+        <img src="{{ g.cover_url | cover }}" alt="" loading="lazy" referrerpolicy="no-referrer">
+        {% else %}
+        <span class="card__nocover" aria-hidden="true">{{ g.title[:1] }}</span>
+        {% endif %}
+        <span class="sticker">
+          {{ score_tag(row.metascore, "Критики") }}
+          {{ score_tag(row.userscore, "Игроки", user=True) }}
+        </span>
+      </div>
+      <div class="card__body">
+        <h2 class="card__title">{{ g.title }}</h2>
+        <p class="card__date">{{ g.release_date | ru_date }}</p>
+        <ul class="badges" aria-label="Платформы">
+          {% for s in g.scores | sort(attribute="platform") %}
+          <li class="badge">{{ s.platform }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% if result.pages > 1 %}
+<nav class="pager" aria-label="Страницы">
+  {% if result.page > 1 %}
+  <a class="pager__step" href="{{ page_url(result.page - 1) }}" hx-get="{{ page_url(result.page - 1) }}" hx-target="#results" hx-push-url="true" rel="prev">← Назад</a>
+  {% endif %}
+  <span class="pager__info">Страница {{ result.page }} из {{ result.pages }}</span>
+  {% if result.page < result.pages %}
+  <a class="pager__step" href="{{ page_url(result.page + 1) }}" hx-get="{{ page_url(result.page + 1) }}" hx-target="#results" hx-push-url="true" rel="next">Дальше →</a>
+  {% endif %}
+</nav>
+{% endif %}
+
+{% else %}
+<div class="empty">
+  {% if q or platform %}
+  <p class="empty__title">Ничего не нашли</p>
+  <p>Проверьте написание названия или выберите другую платформу.</p>
+  <a class="button" href="/">Сбросить фильтры</a>
+  {% else %}
+  <p class="empty__title">Игр пока нет</p>
+  <p>Первый обход Metacritic начнётся через минуту после запуска сервиса. Обновите страницу чуть позже.</p>
+  {% endif %}
+</div>
+{% endif %}

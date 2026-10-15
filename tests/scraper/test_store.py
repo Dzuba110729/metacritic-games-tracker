@@ -80,3 +80,12 @@ def test_upsert_without_processed_date_keeps_old(db):
     upsert_game(db, make())
     db.commit()
     assert db.scalar(select(Game)).last_processed_date == date(2026, 10, 14)
+
+
+def test_upsert_keeps_only_metacritic_covers(db):
+    good = "https://www.metacritic.com/a/img/catalog/provider/7/2/x.jpg"
+    game = upsert_game(db, make(slug="c1", cover_url=good))
+    assert game.cover_url == good
+    for bad in ("https://evil.example/x.jpg", "http://www.metacritic.com/x.jpg", "javascript:1"):
+        game = upsert_game(db, make(slug="c2", cover_url=bad))
+        assert game.cover_url is None

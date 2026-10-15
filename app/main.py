@@ -3,9 +3,12 @@ from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 from app.config import Settings, get_settings
 from app.db import init_db, make_engine, make_sessionmaker
+from app.web.routes import STATIC_DIR, not_found, router
+from app.web.security import SecurityHeadersMiddleware
 from app.worker.pipeline import Deps
 from app.worker.scheduler import Worker
 
@@ -32,7 +35,17 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         worker.shutdown()
         engine.dispose()
 
-    app = FastAPI(title="Metacritic Games Tracker", lifespan=lifespan)
+    app = FastAPI(
+        title="Metacritic Games Tracker",
+        lifespan=lifespan,
+        docs_url=None,
+        redoc_url=None,
+        openapi_url=None,
+    )
+    app.add_middleware(SecurityHeadersMiddleware)
+    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+    app.include_router(router)
+    app.add_exception_handler(404, not_found)
 
     @app.get("/healthz")
     def healthz() -> dict[str, bool]:

@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.models import Game, PlatformScore
 from app.scraper.schemas import GameData
+from app.web.security import is_metacritic_url
 
 GAME_FIELDS = (
     "title",
@@ -30,6 +31,9 @@ def upsert_game(db: Session, data: GameData, processed_date: date | None = None)
 
     for name in GAME_FIELDS:
         value = getattr(data, name)
+        if name == "cover_url" and not is_metacritic_url(value):
+            # Обложки показываем только с доменов Metacritic (CSP img-src).
+            value = None
         # Пустое значение не затирает уже известное (например, сайт временно не отдал описание).
         if value or getattr(game, name) is None:
             if name in EMBEDDING_FIELDS and value != getattr(game, name):

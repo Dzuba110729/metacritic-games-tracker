@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}{% if q %}«{{ q }}» — {% endif %}Новинки Metacritic{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1 class="intro__title">Что вышло<br>и что о&nbsp;нём говорят</h1>
+  <p class="intro__lead">Каждый час забираем 20 игр с Metacritic и коротко пересказываем отзывы критиков и игроков.</p>
+</section>
+
+<form id="filters" class="filters" action="/" method="get" role="search"
+      hx-get="/" hx-target="#results" hx-push-url="true"
+      hx-trigger="input changed delay:300ms from:#q, change from:select, submit">
+  <label class="field field--search">
+    <span class="field__label">Название</span>
+    <input id="q" type="search" name="q" value="{{ q }}" maxlength="100"
+           placeholder="Например, Castlevania" autocomplete="off">
+  </label>
+  <label class="field">
+    <span class="field__label">Платформа</span>
+    <select name="platform">
+      <option value="">Все платформы</option>
+      {% for p in platforms %}
+      <option value="{{ p }}" {% if p == platform %}selected{% endif %}>{{ p }}</option>
+      {% endfor %}
+      {% if platform and platform not in platforms %}
+      <option value="{{ platform }}" selected>{{ platform }}</option>
+      {% endif %}
+    </select>
+  </label>
+  <label class="field">
+    <span class="field__label">Порядок</span>
+    <select name="sort">
+      {% for key, label in SORTS.items() %}
+      <option value="{{ key }}" {% if key == sort %}selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <noscript><button class="button" type="submit">Показать</button></noscript>
+</form>
+
+<div id="results" aria-live="polite">
+  {% include "_results.html" %}
+</div>
+{% endblock %}

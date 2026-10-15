@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% from "_macros.html" import score_tag, summary_block %}
+{% block title %}{{ game.title }} — Новинки Metacritic{% endblock %}
+{% block content %}
+<a class="back" href="/">← Все игры</a>
+
+<section class="hero">
+  <div class="hero__cover">
+    {% if game.cover_url | cover %}
+    <img src="{{ game.cover_url | cover }}" alt="Обложка {{ game.title }}" referrerpolicy="no-referrer">
+    {% else %}
+    <span class="card__nocover" aria-hidden="true">{{ game.title[:1] }}</span>
+    {% endif %}
+  </div>
+  <div class="hero__info">
+    <h1 class="hero__title">{{ game.title }}</h1>
+    <dl class="facts">
+      <div><dt>Выход</dt><dd>{{ game.release_date | ru_date }}</dd></div>
+      <div><dt>Разработчик</dt><dd>{{ game.developer or "не указан" }}</dd></div>
+      {% if game.publisher and game.publisher != game.developer %}
+      <div><dt>Издатель</dt><dd>{{ game.publisher }}</dd></div>
+      {% endif %}
+    </dl>
+    {% if game.genres %}
+    <ul class="badges badges--genre" aria-label="Жанры">
+      {% for genre in game.genres %}<li class="badge">{{ genre }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+
+    {# Шкала 0–100: где оказались критики и игроки (оценка игроков ×10). #}
+    <div class="meter" role="img"
+         aria-label="Критики: {{ metascore if metascore is not none else 'оценок нет' }}, игроки: {{ userscore | userscore if userscore is not none else 'оценок нет' }}">
+      <div class="meter__track">
+        {% if metascore is not none %}
+        <span class="meter__pin meter__pin--critic meter__pin--{{ metascore | tone }} at-{{ metascore }}">
+          <span class="meter__pin-label">Критики {{ metascore }}</span>
+        </span>
+        {% endif %}
+        {% if userscore is not none %}
+        <span class="meter__pin meter__pin--user meter__pin--{{ userscore | tone(10) }} at-{{ (userscore * 10) | round | int }}">
+          <span class="meter__pin-label">Игроки {{ userscore | userscore }}</span>
+        </span>
+        {% endif %}
+      </div>
+      <div class="meter__scale" aria-hidden="true"><span>0</span><span>50</span><span>75</span><span>100</span></div>
+      {% if metascore is none and userscore is none %}
+      <p class="meter__empty">Оценок пока нет: критики и игроки ещё не высказались.</p>
+      {% endif %}
+    </div>
+
+    {% if game.metacritic_url | http_url %}
+    <a class="button button--ghost" href="{{ game.metacritic_url | http_url }}" target="_blank" rel="noopener noreferrer">Открыть на Metacritic ↗</a>
+    {% endif %}
+  </div>
+</section>
+
+<section class="block">
+  <h2 class="block__title">Оценки по платформам</h2>
+  {% if scores %}
+  <div class="table-wrap">
+    <table class="scores">
+      <thead>
+        <tr><th scope="col">Платформа</th><th scope="col">Критики</th><th scope="col">Игроки</th></tr>
+      </thead>
+      <tbody>
+        {% for s in scores %}
+        <tr>
+          <th scope="row">{{ s.platform }}</th>
+          <td>
+            {{ score_tag(s.metascore, "Критики") }}
+            {% if s.critic_count %}<span class="scores__n">{{ s.critic_count }} {{ plural(s.critic_count, "рецензия", "рецензии", "рецензий") }}</span>{% endif %}
+          </td>
+          <td>
+            {{ score_tag(s.userscore, "Игроки", user=True) }}
+            {% if s.user_count %}<span class="scores__n">{{ s.user_count }} {{ plural(s.user_count, "оценка", "оценки", "оценок") }}</span>{% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p class="muted">Оценок пока нет.</p>
+  {% endif %}
+</section>
+
+{% if game.description %}
+<section class="block">
+  <h2 class="block__title">Об игре</h2>
+  <p class="description">{{ game.description }}</p>
+</section>
+{% endif %}
+
+<section class="block">
+  <h2 class="block__title">Что пишут в отзывах</h2>
+  <div class="summaries">
+    {{ summary_block(game.critic_summary, "Критики", "critic") }}
+    {{ summary_block(game.user_summary, "Игроки", "user") }}
+  </div>
+</section>
+
+<section class="block block--media">
+  <div>
+    <h2 class="block__title">Трейлер</h2>
+    {% set yt = youtube_id(game.video_url) %}
+    {% if yt %}
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/{{ yt }}" title="Трейлер {{ game.title }}"
+              loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+              allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
+    {% elif game.video_url | http_url %}
+    <a class="button button--ghost" href="{{ game.video_url | http_url }}" target="_blank" rel="noopener noreferrer">Смотреть трейлер ↗</a>
+    {% else %}
+    <p class="muted">На Metacritic трейлера нет.</p>
+    {% endif %}
+  </div>
+  <div id="letsplay">
+    <h2 class="block__title">Летсплей</h2>
+    {# Шаг 8 заполнит game.letsplay: ролик YouTube и пересказ по субтитрам. #}
+    <p class="muted">Летсплей ещё не найден. Ищем его на YouTube при каждом обходе.</p>
+  </div>
+</section>
+
+<section class="block">
+  <h2 class="block__title">Похожие игры</h2>
+  {% if similar %}
+  <ul class="similar">
+    {% for s in similar %}
+    <li>
+      <a class="similar__item" href="/game/{{ s.slug }}">
+        {% if s.cover_url | cover %}
+        <img src="{{ s.cover_url | cover }}" alt="" loading="lazy" referrerpolicy="no-referrer">
+        {% else %}
+        <span class="card__nocover" aria-hidden="true">{{ s.title[:1] }}</span>
+        {% endif %}
+        <span class="similar__title">{{ s.title }}</span>
+        <span class="similar__genre">{{ s.genres | join(", ") }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="muted">Похожие игры появятся, когда в базе станет больше игр.</p>
+  {% endif %}
+</section>
+{% endblock %}
