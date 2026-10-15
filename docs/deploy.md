@@ -3,9 +3,8 @@
 Сервис работает на общем VPS `188.130.141.107` (Ubuntu 22.04, 2 vCPU, 4 ГБ RAM).
 Адрес: **https://188-130-141-107.sslip.io** (логин `reviewer`, пароль — в письме).
 
-На сервере уже живут чужие сайты (`[скрыто]`, `[скрыто]`, CRM на `[скрыто]`),
-[скрыто], VPN [скрыто] и [скрыто]. Деплой сделан **только добавлениями**: ufw, sshd, docker-демон,
-чужие конфиги nginx, контейнеры и сети не менялись.
+Сервер общий: на нём уже работают nginx и certbot. Деплой сделан **только добавлениями**:
+ufw, sshd, docker-демон, существующие конфиги nginx, контейнеры и сети не менялись.
 
 ## Что и где лежит
 
@@ -16,12 +15,12 @@
 | База SQLite и кэш модели эмбеддингов | `/opt/metacritic-games-tracker/data/` (владелец uid 1000 — пользователь в контейнере) |
 | Docker Compose | проект `metacritic`, файлы `docker-compose.yml` + `docker-compose.prod.yml` |
 | Контейнер | `metacritic-app-1`, порт `127.0.0.1:8001` (только локально), лимит памяти 1 ГБ |
-| Docker-сеть | `metacritic_net`, подсеть `172.30.0.0/24` (не пересекается с 172.17/16, 172.18/16, [скрыто]) |
+| Docker-сеть | `metacritic_net`, подсеть `172.30.0.0/24` (выбрана так, чтобы не пересекаться с уже занятыми подсетями) |
 | Логи контейнера | json-file с ротацией: 3 файла по 10 МБ (`docker logs metacritic-app-1`) |
 | Сайт nginx | `/etc/nginx/sites-available/metacritic` + симлинк в `sites-enabled` (шаблон до certbot — `deploy/nginx-metacritic.conf`) |
 | Пароль сайта (Basic Auth) | `/etc/nginx/.htpasswd-metacritic`, `root:www-data`, `640` |
 | Сертификат Let's Encrypt | `/etc/letsencrypt/live/188-130-141-107.sslip.io/`, продлевает уже работающий таймер certbot |
-| Снимок сервера до деплоя | `/root/games-deploy-backup/` (копия `/etc/nginx`, `ss`, `docker ps`, `ufw`, коды сайтов до и после) |
+| Снимок сервера до деплоя | `/root/games-deploy-backup/` (копия `/etc/nginx`, `ss`, `docker ps`, `ufw`, коды ответа nginx до и после) |
 
 Схема: браузер → nginx `:443` (HTTPS, Basic Auth, HSTS) → `127.0.0.1:8001` → контейнер `:8000`.
 Порт 80 отдаёт только редирект на HTTPS. Снаружи порт 8001 закрыт (ufw его не пускает, а Docker
@@ -33,7 +32,7 @@
 ## Первичная установка (как было сделано)
 
 1. Снимок: `mkdir /root/games-deploy-backup`, копия `/etc/nginx`, вывод `ss -tulnp`, `docker ps -a`,
-   `ufw status verbose`, коды ответа существующих сайтов.
+   `ufw status verbose`, коды ответа существующих виртуальных хостов nginx.
 2. `git clone https://github.com/Dzuba110729/metacritic-games-tracker.git /opt/metacritic-games-tracker`.
 3. Секреты (вводит владелец сервера сам, в чат не попадают):
    ```bash
@@ -56,8 +55,7 @@ ssh root@188.130.141.107 /opt/metacritic-games-tracker/scripts/deploy.sh
 
 Скрипт делает `git pull --ff-only` и
 `docker compose -p metacritic -f docker-compose.yml -f docker-compose.prod.yml up -d --build`.
-`docker-compose.override.yml` на сервере не подключается: он открыл бы порт 8000 в обход пароля
-(и порт 8000 занят CRM).
+`docker-compose.override.yml` на сервере не подключается: он открыл бы порт 8000 в обход пароля.
 
 Сменить пароль сайта — повторить команду `printf ... openssl passwd -apr1 ...` из шага 3, nginx
 перечитывает файл сам. Сменить ключ Claude — команда `read ... sed ...` из шага 3, затем
@@ -79,10 +77,9 @@ cd /opt/metacritic-games-tracker && docker compose -p metacritic -f docker-compo
 
 | Проверка | Результат |
 |----------|-----------|
-| Чужие сайты `[скрыто]`, `[скрыто]`, `[скрыто]` | 200, 200, 405 — как до деплоя (405 — обычный ответ CRM на `HEAD`) |
+| Существующие виртуальные хосты nginx | коды ответа те же, что до деплоя |
 | Порты (`ss -tulnp`) | добавился только `127.0.0.1:8001`; остальное на месте |
-| Контейнеры | CRM `[скрыто]` работает, добавился `metacritic-app-1` (healthy) |
-| VPN `[скрыто]`, UDP [скрыто] | интерфейс поднят, порт слушается |
+| Контейнеры | прежние на месте, добавился `metacritic-app-1` (healthy) |
 | ufw | без изменений |
 | `/etc/nginx` против снимка | добавлены только `sites-available/metacritic`, симлинк и `.htpasswd-metacritic` |
 | `http://188-130-141-107.sslip.io` | 301 на `https://` |
