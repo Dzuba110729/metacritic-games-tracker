@@ -17,6 +17,8 @@ GAME_FIELDS = (
     "video_url",
     "metacritic_url",
 )
+# Поля, из которых строится текст эмбеддинга (app/similar/embeddings.game_text).
+EMBEDDING_FIELDS = {"title", "genres", "description"}
 
 
 def upsert_game(db: Session, data: GameData, processed_date: date | None = None) -> Game:
@@ -30,6 +32,9 @@ def upsert_game(db: Session, data: GameData, processed_date: date | None = None)
         value = getattr(data, name)
         # Пустое значение не затирает уже известное (например, сайт временно не отдал описание).
         if value or getattr(game, name) is None:
+            if name in EMBEDDING_FIELDS and value != getattr(game, name):
+                # Текст для эмбеддинга изменился: refresh_embedding посчитает вектор заново.
+                game.embedding = None
             setattr(game, name, value)
 
     by_platform = {s.platform: s for s in game.scores}

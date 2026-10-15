@@ -15,6 +15,8 @@ class Settings(BaseSettings):
     llm_price_output_per_mtok: float = 0.50
     tz: str = "Europe/Moscow"
     database_url: str = "sqlite:///data/games.db"
+    # Кэш модели эмбеддингов: лежит в томе ./data, чтобы не качать её при каждом старте.
+    models_dir: str = "data/models"
     schedule_minutes: int = 60
     force_run_cooldown_min: int = 10
     log_level: str = "INFO"
