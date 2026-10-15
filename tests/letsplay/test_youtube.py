@@ -162,3 +162,21 @@ def test_get_transcript_rejects_foreign_host():
     with pytest.raises(LetsplayError):
         get_transcript(make_video(subtitle_url="https://evil.example/sub.vtt"), ydl_factory=ydl)
     assert ydl.opened == []
+
+
+class _Redirected(io.BytesIO):
+    url = "https://evil.example/sub.vtt"
+
+
+def test_get_transcript_rejects_redirect_to_foreign_host():
+    ydl = FakeYdl()
+    ydl.urlopen = lambda url: _Redirected(b"WEBVTT")
+    with pytest.raises(LetsplayError, match="перенаправлены"):
+        get_transcript(make_video(), ydl_factory=ydl)
+
+
+def test_get_transcript_rejects_huge_file(monkeypatch):
+    monkeypatch.setattr("app.letsplay.youtube.MAX_SUBTITLE_BYTES", 100)
+    ydl = FakeYdl(vtt=b"x" * 1000)
+    with pytest.raises(LetsplayError, match="большие"):
+        get_transcript(make_video(), ydl_factory=ydl)

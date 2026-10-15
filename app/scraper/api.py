@@ -1,6 +1,7 @@
 """Разбор ответов внутреннего API Metacritic. Эндпоинты описаны в docs/metacritic-api.md."""
 
 import logging
+import re
 from datetime import date
 from typing import Any
 
@@ -20,13 +21,22 @@ REVIEWS_PAGE_CAP: dict[ReviewKind, int] = {"critic": 10, "user": 50}
 IMAGE_BASE = f"{SITE}/a/img/catalog"
 
 
+# slug приходит из ответа Metacritic и подставляется в путь запроса:
+# без проверки "../" или "?" поменяли бы путь и параметры.
+SLUG_RE = re.compile(r"[a-z0-9][a-z0-9_-]{0,200}")
+
+
 class GameNotFoundError(LookupError):
     pass
 
 
+def valid_slug(slug: Any) -> bool:
+    return isinstance(slug, str) and SLUG_RE.fullmatch(slug) is not None
+
+
 def _slugs(payload: dict[str, Any]) -> list[str]:
     items = (payload.get("data") or {}).get("items") or []
-    return [it["slug"] for it in items if it.get("slug")]
+    return [it["slug"] for it in items if valid_slug(it.get("slug"))]
 
 
 def list_new_releases(client: MetacriticClient) -> list[str]:
@@ -150,6 +160,8 @@ def _fill_from_html(game: GameData, html: str) -> None:
 
 
 def get_game(client: MetacriticClient, slug: str, *, with_user_scores: bool = True) -> GameData:
+    if not valid_slug(slug):
+        raise GameNotFoundError(slug)
     try:
         payload = client.get_json(f"/composer/metacritic/pages/games/{slug}/web")
     except httpx.HTTPStatusError as exc:
@@ -161,7 +173,7 @@ def get_game(client: MetacriticClient, slug: str, *, with_user_scores: bool = Tr
 
     if with_user_scores:
         for score in game.platforms:
-            if not score.slug:
+            if not valid_slug(score.slug):
                 continue
             stats = client.get_json(
                 f"/reviews/metacritic/user/games/{slug}/platform/{score.slug}/stats/web"
@@ -208,6 +220,8 @@ def _fetch_reviews(
 
     Возвращает (отзывы, всего на сайте, offset для следующего запроса).
     """
+    if not valid_slug(slug):
+        raise GameNotFoundError(slug)
     out: list[Review] = []
     total = 0
     cap = REVIEWS_PAGE_CAP[kind]

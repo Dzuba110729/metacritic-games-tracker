@@ -140,12 +140,28 @@ def test_unknown_platform_gives_empty_state(client):
         ("_", []),
         ("<script>", ["Gamma &lt;script&gt;alert(1)&lt;/script&gt;"]),
         ("нет такой", []),
+        # SQL-инъекции: ищутся как обычный текст, запрос параметризован
+        ("' OR 1=1 --", []),
+        ("alpha' OR '1'='1", []),
+        ("'; DROP TABLE games; --", []),
     ],
 )
 def test_search(client, q, expected):
     resp = client.get("/", params={"q": q})
     assert resp.status_code == 200
     assert titles(resp.text) == expected
+
+
+def test_sql_injection_does_not_break_db(client):
+    for params in (
+        {"q": "'; DROP TABLE games; --"},
+        {"platform": "PC' OR 1=1 --"},
+        {"sort": "metascore; DROP TABLE games"},
+        {"page": "1 OR 1=1"},
+    ):
+        assert client.get("/", params=params).status_code in (200, 422)
+    resp = client.get("/")
+    assert len(titles(resp.text)) == 4
 
 
 def test_search_query_is_escaped(client):

@@ -22,6 +22,8 @@ SOCKET_TIMEOUT_SEC = 15
 SUB_LANGS = ("en", "ru")
 # Субтитры качаем только с YouTube: URL приходит из ответа yt-dlp, проверяем хост.
 SUBTITLE_HOSTS = ("youtube.com", "www.youtube.com")
+# Предел размера дорожки субтитров: час речи в vtt — около 1 МБ.
+MAX_SUBTITLE_BYTES = 5_000_000
 
 BASE_OPTS: dict[str, Any] = {
     "quiet": True,
@@ -198,7 +200,14 @@ def get_transcript(video: Video, ydl_factory: YdlFactory = yt_dlp.YoutubeDL) -> 
         raise LetsplayError(f"субтитры не с YouTube: {host}")
     try:
         with ydl_factory(BASE_OPTS) as ydl:
-            raw = ydl.urlopen(video.subtitle_url).read()
+            resp = ydl.urlopen(video.subtitle_url)
+            # urlopen идёт по редиректам: проверяем и конечный адрес.
+            final_host = urlsplit(getattr(resp, "url", None) or video.subtitle_url).hostname or ""
+            if final_host.lower() not in SUBTITLE_HOSTS:
+                raise LetsplayError(f"субтитры перенаправлены не на YouTube: {final_host}")
+            raw = resp.read(MAX_SUBTITLE_BYTES + 1)
     except (YoutubeDLError, OSError) as exc:  # DownloadError, HTTPError, сетевые ошибки
         raise _wrap(exc) from exc
+    if len(raw) > MAX_SUBTITLE_BYTES:
+        raise LetsplayError("субтитры слишком большие")
     return clean_vtt(raw.decode("utf-8", errors="replace"))

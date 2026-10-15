@@ -6,6 +6,7 @@ import respx
 
 from app.scraper.api import (
     GameNotFoundError,
+    _slugs,
     get_game,
     get_reviews,
     list_browse_page,
@@ -175,3 +176,18 @@ def test_client_blocks_foreign_redirect(client, mock_api):
     )
     with pytest.raises(HostNotAllowedError):
         list_new_releases(client)
+
+
+@pytest.mark.parametrize("slug", ["../../admin", "game?apiKey=x", "a/b", "", "UPPER", "a" * 300])
+def test_bad_slug_never_reaches_api(client, slug):
+    # respx не настроен: любой запрос к сети упал бы с ошибкой «не замокано»
+    with respx.mock(assert_all_called=False):
+        with pytest.raises(GameNotFoundError):
+            get_game(client, slug)
+        with pytest.raises(GameNotFoundError):
+            get_reviews(client, slug, "critic")
+
+
+def test_list_skips_bad_slugs():
+    payload = {"data": {"items": [{"slug": "ok-game"}, {"slug": "../x"}, {"slug": None}]}}
+    assert _slugs(payload) == ["ok-game"]

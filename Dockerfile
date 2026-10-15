@@ -1,6 +1,9 @@
 FROM python:3.12-slim
 
-COPY --from=ghcr.io/astral-sh/uv:0.11 /uv /usr/local/bin/uv
+# Свежие исправления безопасности Debian; pip в образе не нужен (зависимости ставит uv).
+RUN apt-get update && apt-get upgrade -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/* \
+    && python -m pip uninstall -y pip
 
 ENV UV_COMPILE_BYTECODE=1 \
     UV_LINK_MODE=copy \
@@ -11,7 +14,9 @@ ENV UV_COMPILE_BYTECODE=1 \
 WORKDIR /app
 
 COPY pyproject.toml uv.lock ./
-RUN uv sync --frozen --no-dev --no-install-project
+# uv подключается только на время сборки и в итоговый образ не попадает.
+RUN --mount=from=ghcr.io/astral-sh/uv:0.11,source=/uv,target=/usr/local/bin/uv \
+    uv sync --frozen --no-dev --no-install-project
 
 COPY app ./app
 
