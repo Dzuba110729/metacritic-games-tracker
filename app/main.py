@@ -7,6 +7,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app.config import Settings, get_settings
 from app.db import init_db, make_engine, make_sessionmaker
+from app.web import monitor
 from app.web.routes import STATIC_DIR, not_found, router
 from app.web.security import SecurityHeadersMiddleware
 from app.worker.pipeline import Deps
@@ -45,6 +46,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.add_middleware(SecurityHeadersMiddleware)
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
     app.include_router(router)
+    app.include_router(monitor.router)
     app.add_exception_handler(404, not_found)
 
     @app.get("/healthz")

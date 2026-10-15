@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Мониторинг — Новинки Metacritic{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', path='monitor.js') }}" defer></script>
+{% endblock %}
+{% block content %}
+<section class="intro intro--monitor">
+  <h1 class="intro__title">Мониторинг</h1>
+  <p class="intro__lead">Что сборщик делает прямо сейчас. Данные обновляются каждую секунду.</p>
+</section>
+
+<div id="monitor" class="monitor" data-stream="/monitor/stream" data-runs="/monitor/runs" data-runs-key="{{ s.runs_key }}">
+  <section class="panel panel--status" aria-labelledby="status-title">
+    <div class="panel__head">
+      <h2 id="status-title" class="panel__title">Сборщик</h2>
+      <span class="live" data-live>
+        <span class="live__dot" aria-hidden="true"></span>
+        <span data-live-text>подключаемся…</span>
+      </span>
+    </div>
+    <p class="state state--{{ s.status }}" data-status>
+      <span class="state__dot" aria-hidden="true"></span>
+      <span data-field="status_label">{{ s.status_label }}</span>
+    </p>
+    <dl class="kv">
+      <div><dt>Этап</dt><dd data-field="stage">{{ s.stage }}</dd></div>
+      <div><dt>Текущая игра</dt><dd data-field="current_game" class="kv__game">{{ s.current_game }}</dd></div>
+      <div><dt>Идёт</dt><dd data-field="elapsed">{{ s.elapsed }}</dd></div>
+      <div><dt>Следующий запуск</dt><dd><span data-field="next_run_in">{{ s.next_run_in }}</span>{% if s.next_run_at %} <span class="kv__note">в <span data-field="next_run_at">{{ s.next_run_at }}</span></span>{% endif %}</dd></div>
+    </dl>
+    <div class="progress-box">
+      <div class="progress-box__label">
+        <span>Прогресс прогона</span>
+        <span class="progress-box__nums"><b data-field="processed">{{ s.processed }}</b>/<span data-field="batch_size">{{ s.batch_size }}</span></span>
+      </div>
+      <progress class="bar" data-bar="progress" max="{{ s.batch_size }}" value="{{ s.processed }}">{{ s.processed }} из {{ s.batch_size }}</progress>
+    </div>
+    <div class="runbox">
+      <form hx-post="/monitor/run" hx-target="#run-result" hx-swap="innerHTML" hx-disabled-elt="find button">
+        <button class="button button--run" type="submit">Запустить сейчас</button>
+      </form>
+      <div id="run-result" class="runbox__result" role="status" aria-live="polite"></div>
+      <p class="runbox__hint">Не чаще раза в {{ cooldown_min }} мин. Одновременно идёт только один прогон.</p>
+    </div>
+  </section>
+
+  <section class="tiles" aria-label="Счётчики">
+    <div class="tile"><span class="tile__label">Всего игр в базе</span><span class="tile__value" data-field="total_games">{{ s.total_games }}</span></div>
+    <div class="tile"><span class="tile__label">Обработано сегодня</span><span class="tile__value" data-field="processed_today">{{ s.processed_today }}</span></div>
+    <div class="tile tile--errors"><span class="tile__label">Ошибки сегодня</span><span class="tile__value" data-field="errors_today">{{ s.errors_today }}</span></div>
+    <div class="tile tile--llm">
+      <span class="tile__label">Расход LLM сегодня</span>
+      <span class="tile__value">$<span data-field="llm_spent">{{ "%.4f" | format(s.llm_spent) }}</span></span>
+      <progress class="bar bar--thin" data-bar="llm" max="100" value="{{ s.llm_percent }}">{{ s.llm_percent }}%</progress>
+      <span class="tile__note">из ${{ "%.2f" | format(s.llm_budget) }} · <span data-field="llm_tokens">{{ s.llm_input_tokens }} / {{ s.llm_output_tokens }}</span> ток.</span>
+    </div>
+  </section>
+
+  <section class="panel panel--events" aria-labelledby="events-title">
+    <h2 id="events-title" class="panel__title">Последние события</h2>
+    <ol class="events" data-events>
+      {% for e in s.events %}
+      <li class="events__item events__item--{{ e.level }}"><time class="events__time">{{ e.time }}</time><span class="events__msg">{{ e.message }}</span></li>
+      {% else %}
+      <li class="events__empty">Событий пока нет.</li>
+      {% endfor %}
+    </ol>
+  </section>
+</div>
+
+<section class="block block--runs" aria-labelledby="runs-title">
+  <h2 id="runs-title" class="block__title">Последние прогоны</h2>
+  <div id="runs" class="table-wrap">
+    {% include "_runs.html" %}
+  </div>
+</section>
+{% endblock %}

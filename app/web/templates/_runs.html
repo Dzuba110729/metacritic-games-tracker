@@ -1,0 +1,35 @@
+{% if runs %}
+<table class="runs">
+  <thead>
+    <tr><th scope="col">№</th><th scope="col">Начало</th><th scope="col">Запуск</th><th scope="col">Статус</th><th scope="col">Длительность</th><th scope="col">Игры</th><th scope="col">Ошибки</th></tr>
+  </thead>
+  <tbody>
+    {% for r in runs %}
+    <tr>
+      <td class="runs__id">#{{ r.id }}</td>
+      <td>{{ r.started }}</td>
+      <td>{{ r.trigger }}</td>
+      <td><span class="pill pill--{{ r.status }}">{{ r.status_label }}</span></td>
+      <td>{{ r.duration }}</td>
+      <td class="runs__num">{{ r.games_processed }}/{{ r.games_found }}</td>
+      <td>
+        {% if r.errors %}
+        <details class="errs">
+          <summary>{{ r.errors | length }} {{ plural(r.errors | length, "ошибка", "ошибки", "ошибок") }}</summary>
+          <ul>
+            {% for e in r.errors %}
+            <li><b>{{ e.slug or "весь прогон" }}</b> · {{ e.stage }}<br><code>{{ e.error }}</code></li>
+            {% endfor %}
+          </ul>
+        </details>
+        {% else %}
+        <span class="muted">нет</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="muted">Прогонов ещё не было.</p>
+{% endif %}

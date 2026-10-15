@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Unbounded:wght@500;700;800&display=swap">
   <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
   <script src="{{ url_for('static', path='htmx.min.js') }}" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" defer></script>
+  {% block scripts %}{% endblock %}
 </head>
 <body>
   <a class="skip" href="#main">К содержимому</a>
@@ -21,7 +22,8 @@
         <span class="brand__name">Новинки Metacritic</span>
       </a>
       <nav class="topnav" aria-label="Разделы">
-        <a href="/">Все игры</a>
+        <a href="/"{% if request.url.path == "/" %} aria-current="page"{% endif %}>Все игры</a>
+        <a href="/monitor"{% if request.url.path.startswith("/monitor") %} aria-current="page"{% endif %}>Мониторинг</a>
       </nav>
     </div>
   </header>

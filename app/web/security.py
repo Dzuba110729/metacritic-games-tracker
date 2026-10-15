@@ -102,3 +102,15 @@ class SecurityHeadersMiddleware:
             await send(message)
 
         await self.app(scope, receive, send_with_headers)
+
+
+def same_origin(origin: str | None, host: str | None) -> bool:
+    """Заголовок Origin указывает на этот же сайт. Без Origin — отказ: браузеры шлют его
+    в каждом POST. Схему не сравниваем: за Caddy приложение видит http, а браузер — https."""
+    if not origin or not host:
+        return False
+    try:
+        netloc = urlsplit(origin.strip()).netloc
+    except ValueError:
+        return False
+    return bool(netloc) and netloc.lower() == host.strip().lower()
