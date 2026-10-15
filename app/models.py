@@ -94,3 +94,13 @@ class LlmUsage(Base):
     input_tokens: Mapped[int] = mapped_column(Integer, default=0)
     output_tokens: Mapped[int] = mapped_column(Integer, default=0)
     cost_usd: Mapped[float] = mapped_column(Float, default=0.0)
+
+
+class AutoMode(Base):
+    """Авто-режим: одна строка (id=1). enabled_until — наивное UTC; None — режим выключен."""
+
+    __tablename__ = "auto_mode"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    enabled_at: Mapped[datetime | None] = mapped_column(DateTime)
+    enabled_until: Mapped[datetime | None] = mapped_column(DateTime)

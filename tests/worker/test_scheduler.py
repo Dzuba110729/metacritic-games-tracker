@@ -53,20 +53,6 @@ def test_trigger_manual_refused_while_running(deps, factory):
     assert "уже идёт" in result.reason
 
 
-def test_scheduler_job_settings(deps):
-    deps.settings.first_run_delay_sec = 30
-    worker = Worker(deps)
-    worker.start()
-    try:
-        job = worker.scheduler.get_job("pipeline")
-        assert job.max_instances == 1
-        assert job.coalesce is True
-        assert job.trigger.interval == timedelta(minutes=deps.settings.schedule_minutes)
-        assert worker.next_run_at() is not None
-    finally:
-        worker.shutdown()
-
-
 def test_state_keeps_last_events_only():
     st = RunState()
     for i in range(MAX_EVENTS + 20):

@@ -206,3 +206,63 @@ def test_runs_partial(client):
 )
 def test_same_origin(origin, host, ok):
     assert same_origin(origin, host) is ok
+
+
+@pytest.fixture
+def auto_client(client, fake_run):
+    """Клиент с запущенным планировщиком (в остальных тестах он выключен)."""
+    worker = client.app.state.worker
+    worker.start()
+    yield client
+    worker.shutdown()
+
+
+def test_page_shows_auto_off_by_default(client):
+    from app.web.monitor import collect
+
+    resp = client.get("/monitor")
+    assert 'hx-post="/monitor/auto/on"' in resp.text
+    assert "Включить авто-режим" in resp.text
+    s = collect(client.app)
+    assert s["auto_enabled"] is False
+    assert s["auto_label"] == "выключен"
+    assert s["next_run_in"] == "только вручную"
+
+
+def test_auto_on_then_off(auto_client, fake_run):
+    from app.web.monitor import collect
+
+    calls, done = fake_run
+    resp = auto_client.post("/monitor/auto/on", headers=ORIGIN)
+    assert resp.status_code == 200
+    assert "Выключить авто-режим" in resp.text
+    assert 'hx-post="/monitor/auto/off"' in resp.text
+    assert done.wait(3)
+    assert calls == ["schedule"]
+
+    s = collect(auto_client.app)
+    assert s["auto_enabled"] is True
+    assert s["auto_label"].startswith("включён до ")
+    assert (
+        "(МСК), осталось 2 ч 59 мин" in s["auto_label"] or "осталось 3 ч 00 мин" in s["auto_label"]
+    )
+    assert "следующий запуск через" in s["auto_label"]
+
+    again = auto_client.post("/monitor/auto/on", headers=ORIGIN)
+    assert "уже включён" in again.text
+
+    off = auto_client.post("/monitor/auto/off", headers=ORIGIN)
+    assert off.status_code == 200
+    assert "Включить авто-режим" in off.text
+    assert collect(auto_client.app)["auto_enabled"] is False
+    assert calls == ["schedule"]
+
+
+@pytest.mark.parametrize("path", ["/monitor/auto/on", "/monitor/auto/off"])
+@pytest.mark.parametrize("headers", [{"Origin": "https://evil.example"}, {}])
+def test_auto_foreign_origin_is_403(auto_client, fake_run, path, headers):
+    calls, _ = fake_run
+    resp = auto_client.post(path, headers=headers)
+    assert resp.status_code == 403
+    assert auto_client.app.state.worker.auto_until() is None
+    assert calls == []

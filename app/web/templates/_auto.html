@@ -1,0 +1,13 @@
+<div id="auto-box" class="runbox runbox--auto" data-enabled="{{ 'true' if auto_enabled else 'false' }}">
+  {% if auto_enabled %}
+  <form hx-post="/monitor/auto/off" hx-target="#auto-box" hx-swap="outerHTML" hx-disabled-elt="find button">
+    <button class="button button--ghost button--run" type="submit">Выключить авто-режим</button>
+  </form>
+  {% else %}
+  <form hx-post="/monitor/auto/on" hx-target="#auto-box" hx-swap="outerHTML" hx-disabled-elt="find button">
+    <button class="button button--run" type="submit">Включить авто-режим</button>
+  </form>
+  {% endif %}
+  {% if notice %}<p class="notice notice--{{ 'ok' if ok else 'warn' }}" role="status">{{ notice }}</p>{% endif %}
+  <p class="runbox__hint">Первый прогон сразу, дальше раз в {{ schedule_minutes }} мин. Через {{ auto_hours }} ч режим выключится сам. Без авто-режима прогоны идут только по кнопке.</p>
+</div>

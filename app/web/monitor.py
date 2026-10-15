@@ -111,6 +111,13 @@ def collect(app: FastAPI) -> dict[str, Any]:
     now = datetime.now(tz)
     seconds_left = int((next_run - now).total_seconds()) if next_run else None
     started = _local(snap["started_at"], tz)
+    auto = auto_info(worker, tz, now, seconds_left)
+    if not auto["auto_enabled"]:
+        next_run_in = "только вручную"
+    elif seconds_left is not None:
+        next_run_in = _duration(seconds_left)
+    else:
+        next_run_in = "до конца авто-режима не будет"
 
     return {
         "status": status,
@@ -125,7 +132,9 @@ def collect(app: FastAPI) -> dict[str, Any]:
         "run_errors": snap["errors"] if snap["running"] else 0,
         "elapsed": _duration((now - started).total_seconds()) if snap["running"] else "—",
         "next_run_at": next_run.astimezone(tz).strftime("%H:%M") if next_run else None,
-        "next_run_in": _duration(seconds_left) if seconds_left is not None else "не запланирован",
+        "next_run_note": f"в {next_run.astimezone(tz):%H:%M}" if next_run else "",
+        "next_run_in": next_run_in,
+        **auto,
         "total_games": total_games,
         "processed_today": processed_today,
         "errors_today": errors_today,
@@ -147,6 +156,33 @@ def collect(app: FastAPI) -> dict[str, Any]:
         # ещё одну игру: страница по нему перезагружает таблицу прогонов.
         "runs_key": f"{last.id}:{last.status}:{last.games_processed}" if last else "",
     }
+
+
+def _tz_name(tz: ZoneInfo) -> str:
+    return "МСК" if tz.key == "Europe/Moscow" else tz.key
+
+
+def _minutes(seconds: int) -> str:
+    """Округление вверх до минут: «1 ч 05 мин», «12 мин»."""
+    minutes = max(0, -(-seconds // 60))
+    hours, minutes = divmod(minutes, 60)
+    return f"{hours} ч {minutes:02d} мин" if hours else f"{minutes} мин"
+
+
+def auto_info(worker, tz: ZoneInfo, now: datetime, seconds_left: int | None) -> dict[str, Any]:
+    """Строка авто-режима для мониторинга."""
+    until = _local(worker.auto_until(), tz)
+    if until is None:
+        return {"auto_enabled": False, "auto_label": "выключен"}
+    label = (
+        f"включён до {until:%H:%M} ({_tz_name(tz)}), "
+        f"осталось {_minutes(int((until - now).total_seconds()))}"
+    )
+    if seconds_left is not None:
+        label += f", следующий запуск через {_minutes(seconds_left)}"
+    else:
+        label += ", запусков больше не будет"
+    return {"auto_enabled": True, "auto_label": label}
 
 
 def recent_runs(db: Session, tz: ZoneInfo) -> list[dict[str, Any]]:
@@ -182,10 +218,13 @@ def sse_message(data: dict[str, Any]) -> str:
 @router.get("/monitor", response_class=HTMLResponse)
 def monitor_page(request: Request, db: Session = Depends(get_db)):  # noqa: B008
     tz = ZoneInfo(request.app.state.settings.tz)
+    settings = request.app.state.settings
     context = {
         "s": collect(request.app),
         "runs": recent_runs(db, tz),
-        "cooldown_min": request.app.state.settings.force_run_cooldown_min,
+        "cooldown_min": settings.force_run_cooldown_min,
+        "schedule_minutes": settings.schedule_minutes,
+        "auto_hours": settings.auto_mode_hours,
     }
     return templates.TemplateResponse(request, "monitor.html", context)
 
@@ -230,3 +269,36 @@ def monitor_run(request: Request):
     return templates.TemplateResponse(
         request, "_run_result.html", {"started": result.started, "reason": result.reason}
     )
+
+
+def _auto_box(request: Request, notice: str | None = None, ok: bool = True) -> HTMLResponse:
+    settings = request.app.state.settings
+    context = {
+        "auto_enabled": request.app.state.worker.auto_until() is not None,
+        "schedule_minutes": settings.schedule_minutes,
+        "auto_hours": settings.auto_mode_hours,
+        "notice": notice,
+        "ok": ok,
+    }
+    return templates.TemplateResponse(request, "_auto.html", context)
+
+
+@router.get("/monitor/auto", response_class=HTMLResponse)
+def monitor_auto(request: Request):
+    return _auto_box(request)
+
+
+@router.post("/monitor/auto/on", response_class=HTMLResponse)
+def monitor_auto_on(request: Request):
+    if not same_origin(request.headers.get("origin"), request.headers.get("host")):
+        return PlainTextResponse("Запрос с чужого сайта отклонён.", status_code=403)
+    result = request.app.state.worker.enable_auto()
+    return _auto_box(request, result.reason, result.started)
+
+
+@router.post("/monitor/auto/off", response_class=HTMLResponse)
+def monitor_auto_off(request: Request):
+    if not same_origin(request.headers.get("origin"), request.headers.get("host")):
+        return PlainTextResponse("Запрос с чужого сайта отклонён.", status_code=403)
+    result = request.app.state.worker.disable_auto()
+    return _auto_box(request, result.reason, result.started)

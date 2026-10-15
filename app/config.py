@@ -18,10 +18,11 @@ class Settings(BaseSettings):
     # Кэш модели эмбеддингов: лежит в томе ./data, чтобы не качать её при каждом старте.
     models_dir: str = "data/models"
     schedule_minutes: int = 60
+    # Авто-режим включается кнопкой на /monitor и сам выключается через столько часов.
+    auto_mode_hours: int = 3
     force_run_cooldown_min: int = 10
     # Планировщик: выключается в тестах веб-части, чтобы TestClient не запускал прогоны.
     scheduler_enabled: bool = True
-    first_run_delay_sec: int = 30
     log_level: str = "INFO"
     # Публичный ключ, вшитый во фронтенд metacritic.com (не секрет).
     metacritic_api_key: str = "1MOZgmNFxvmljaQR1X9KAij9Mo4xAY3u"

@@ -47,7 +47,7 @@
 
   function update(s) {
     [
-      "status_label", "stage", "current_game", "elapsed", "next_run_in", "next_run_at",
+      "status_label", "stage", "current_game", "elapsed", "next_run_in", "next_run_at", "auto_label",
       "processed", "batch_size", "total_games", "processed_today", "errors_today",
     ].forEach(function (k) { setText(k, s[k] == null ? "—" : s[k]); });
     setText("llm_spent", s.llm_spent.toFixed(4));
@@ -59,7 +59,15 @@
     bar.value = s.processed;
     root.querySelector('[data-bar="llm"]').value = s.llm_percent;
 
+    setText("next_run_note", s.next_run_note || "");
     renderEvents(s.events);
+
+    // Режим выключился по сроку или в другой вкладке — перерисовать кнопку.
+    var autoBox = document.getElementById("auto-box");
+    if (autoBox && window.htmx && autoBox.dataset.enabled !== String(s.auto_enabled)) {
+      autoBox.dataset.enabled = String(s.auto_enabled);
+      htmx.ajax("GET", "/monitor/auto", { target: "#auto-box", swap: "outerHTML" });
+    }
 
     if (s.runs_key !== runsKey) {
       runsKey = s.runs_key;

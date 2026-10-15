@@ -26,7 +26,8 @@
       <div><dt>Этап</dt><dd data-field="stage">{{ s.stage }}</dd></div>
       <div><dt>Текущая игра</dt><dd data-field="current_game" class="kv__game">{{ s.current_game }}</dd></div>
       <div><dt>Идёт</dt><dd data-field="elapsed">{{ s.elapsed }}</dd></div>
-      <div><dt>Следующий запуск</dt><dd><span data-field="next_run_in">{{ s.next_run_in }}</span>{% if s.next_run_at %} <span class="kv__note">в <span data-field="next_run_at">{{ s.next_run_at }}</span></span>{% endif %}</dd></div>
+      <div><dt>Авто-режим</dt><dd data-field="auto_label">{{ s.auto_label }}</dd></div>
+      <div><dt>Следующий запуск</dt><dd><span data-field="next_run_in">{{ s.next_run_in }}</span> <span class="kv__note" data-field="next_run_note">{{ s.next_run_note }}</span></dd></div>
     </dl>
     <div class="progress-box">
       <div class="progress-box__label">
@@ -42,6 +43,7 @@
       <div id="run-result" class="runbox__result" role="status" aria-live="polite"></div>
       <p class="runbox__hint">Не чаще раза в {{ cooldown_min }} мин. Одновременно идёт только один прогон.</p>
     </div>
+    {% with auto_enabled = s.auto_enabled, notice = None %}{% include "_auto.html" %}{% endwith %}
   </section>
 
   <section class="tiles" aria-label="Счётчики">
