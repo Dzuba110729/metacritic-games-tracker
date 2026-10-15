@@ -7,6 +7,10 @@ services:
       # Только локально: снаружи сайт доступен через nginx с Basic Auth.
       # 8000 занят другим сервисом на сервере.
       - "127.0.0.1:8001:8000"
+    environment:
+      # Запросы от nginx приходят через шлюз Docker-сети. Без этого uvicorn не верит
+      # X-Forwarded-Proto и строит ссылки на статику как http:// — браузер их блокирует.
+      FORWARDED_ALLOW_IPS: "172.30.0.1"
     networks:
       - metacritic
     restart: unless-stopped
